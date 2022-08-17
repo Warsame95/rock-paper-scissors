@@ -56,3 +56,37 @@ function playRound(playerSelection, computerSelection){
     return outcome;
 
 }
+
+function game(){
+    let playerSelection;
+    let outcome;
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for(let i = 0; i < 5; i++){
+        playerSelection = prompt("Enter your selection");
+        outcome = playRound(playerSelection,getComputerChoice());
+
+        console.log(outcome);
+        
+        if (outcome.includes("Win")){
+            playerScore++;
+        }
+        else if (outcome.includes("Lose")){
+            computerScore++;
+        }
+        else{
+            continue;
+        }
+    }
+
+    if (playerScore > computerScore){
+        console.log("Congratulations, you won!!");
+    }
+    else if (computerScore > playerScore){
+        console.log("Unlucky, you lost");
+    }
+    else{
+        console.log("The game is a draw!");
+    }
+}
