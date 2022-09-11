@@ -1,4 +1,4 @@
-function getComputerChoice(){
+function getComputerChoice() {
 
     const options = ["Rock", "Paper", "Scissors"];
 
@@ -10,10 +10,10 @@ function getComputerChoice(){
 
 }
 
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection) {
     let outcome;
-    if (playerSelection.toLowerCase() == "rock"){
-        switch(computerSelection.toLowerCase()){
+    if (playerSelection.toLowerCase() == "rock") {
+        switch (computerSelection.toLowerCase()) {
             case "rock":
                 outcome = "Both picked Rock. It's a Draw";
                 break;
@@ -26,8 +26,8 @@ function playRound(playerSelection, computerSelection){
         }
     }
 
-    else if (playerSelection.toLowerCase() == "paper"){
-        switch(computerSelection.toLowerCase()){
+    else if (playerSelection.toLowerCase() == "paper") {
+        switch (computerSelection.toLowerCase()) {
             case "rock":
                 outcome = "You Win! Paper beats Rock";
                 break;
@@ -41,7 +41,7 @@ function playRound(playerSelection, computerSelection){
     }
 
     else {
-        switch(computerSelection.toLowerCase()){
+        switch (computerSelection.toLowerCase()) {
             case "rock":
                 outcome = "You Lose! Rock beats Scissors";
                 break;
@@ -57,36 +57,33 @@ function playRound(playerSelection, computerSelection){
 
 }
 
-function game(){
+function game() {
     let playerSelection;
     let outcome;
     let playerScore = 0;
     let computerScore = 0;
 
-    for(let i = 0; i < 5; i++){
-        playerSelection = prompt("Enter your selection");
-        outcome = playRound(playerSelection,getComputerChoice());
 
-        console.log(outcome);
-        
-        if (outcome.includes("Win")){
-            playerScore++;
-        }
-        else if (outcome.includes("Lose")){
-            computerScore++;
-        }
-        else{
-            continue;
-        }
+    playerSelection = prompt("Enter your selection");
+    outcome = playRound(playerSelection, getComputerChoice());
+
+    console.log(outcome);
+
+    if (outcome.includes("Win")) {
+        playerScore++;
     }
+    if (outcome.includes("Lose")) {
+        computerScore++;
+    }
+    
 
-    if (playerScore > computerScore){
+    if (playerScore > computerScore) {
         console.log("Congratulations, you won!!");
     }
-    else if (computerScore > playerScore){
+    else if (computerScore > playerScore) {
         console.log("Unlucky, you lost");
     }
-    else{
+    else {
         console.log("The game is a draw!");
     }
 }
