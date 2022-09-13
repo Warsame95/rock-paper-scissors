@@ -87,3 +87,15 @@ function game() {
         console.log("The game is a draw!");
     }
 }
+
+const buttons = document.querySelectorAll('button');
+let playerSelection;
+
+buttons.forEach((button) => {
+    button.addEventListener('click', function(e) {
+        playerSelection = e.target.id;
+        console.log(playerSelection);
+        console.log(playRound(playerSelection, getComputerChoice()));
+        
+    });
+});
