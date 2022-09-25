@@ -63,6 +63,9 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
 
+    const playerScoreDisplay = document.getElementById("player");
+    const computerScoreDisplay = document.getElementById("computer");
+
     const buttons = document.querySelectorAll('button');
 
     buttons.forEach((button) => {
@@ -78,6 +81,9 @@ function game() {
             if (outcome.includes("Lose")) {
                 computerScore++;
             }
+            playerScoreDisplay.textContent = playerScore.toString();
+            computerScoreDisplay.textContent = computerScore.toString();
+
             console.log("player: " + playerScore);
             console.log("computer: " + computerScore);
             
