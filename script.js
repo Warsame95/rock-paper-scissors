@@ -59,23 +59,55 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
     let playerSelection;
-    let outcome;
+    var outcome;
     let playerScore = 0;
     let computerScore = 0;
 
+    const buttons = document.querySelectorAll('button');
 
-    playerSelection = prompt("Enter your selection");
-    outcome = playRound(playerSelection, getComputerChoice());
+    buttons.forEach((button) => {
+        button.addEventListener('click', function (e) {
+            playerSelection = e.target.id;
+            console.log(playerSelection);
+            outcome = playRound(playerSelection, getComputerChoice());
+            console.log(outcome);
+
+            if (outcome.includes("Win")) {
+                playerScore++;
+            }
+            if (outcome.includes("Lose")) {
+                computerScore++;
+            }
+            console.log("player: " + playerScore);
+            console.log("computer: " + computerScore);
+            
+            
+            if (playerScore == 5 || computerScore == 5){            // When there is a winner
+
+                if (playerScore > computerScore) {
+                    console.log("Congratulations, you won!!");
+                }
+                else if (computerScore > playerScore) {
+                    console.log("Unlucky, you lost");
+                }
+                else {
+                    console.log("The game is a draw!");
+                }
+
+            }
+            
+        });
+    });
 
     console.log(outcome);
 
-    if (outcome.includes("Win")) {
+    /* if (outcome.includes("Win")) {
         playerScore++;
     }
     if (outcome.includes("Lose")) {
         computerScore++;
     }
-    
+
 
     if (playerScore > computerScore) {
         console.log("Congratulations, you won!!");
@@ -85,17 +117,21 @@ function game() {
     }
     else {
         console.log("The game is a draw!");
-    }
+    } */
 }
 
-const buttons = document.querySelectorAll('button');
+/* const buttons = document.querySelectorAll('button');
 let playerSelection;
+var outcome;
 
 buttons.forEach((button) => {
-    button.addEventListener('click', function(e) {
+    button.addEventListener('click', function (e) {
         playerSelection = e.target.id;
         console.log(playerSelection);
-        console.log(playRound(playerSelection, getComputerChoice()));
+        outcome = playRound(playerSelection, getComputerChoice());
         
+
     });
 });
+console.log(outcome); */
+
