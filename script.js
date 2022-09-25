@@ -83,6 +83,8 @@ function game() {
             
             
             if (playerScore == 5 || computerScore == 5){            // When there is a winner
+                
+                buttons.forEach((button) => button.disabled = true)
 
                 if (playerScore > computerScore) {
                     console.log("Congratulations, you won!!");
