@@ -99,38 +99,6 @@ function game() {
             
         });
     });
-
-    /* if (outcome.includes("Win")) {
-        playerScore++;
-    }
-    if (outcome.includes("Lose")) {
-        computerScore++;
-    }
-
-
-    if (playerScore > computerScore) {
-        console.log("Congratulations, you won!!");
-    }
-    else if (computerScore > playerScore) {
-        console.log("Unlucky, you lost");
-    }
-    else {
-        console.log("The game is a draw!");
-    } */
 }
 
-/* const buttons = document.querySelectorAll('button');
-let playerSelection;
-var outcome;
-
-buttons.forEach((button) => {
-    button.addEventListener('click', function (e) {
-        playerSelection = e.target.id;
-        console.log(playerSelection);
-        outcome = playRound(playerSelection, getComputerChoice());
-        
-
-    });
-});
-console.log(outcome); */
 
