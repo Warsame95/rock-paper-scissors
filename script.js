@@ -72,7 +72,6 @@ function game() {
     buttons.forEach((button) => {
         button.addEventListener('click', function (e) {
             playerSelection = e.target.id;
-            console.log(playerSelection);
             outcome = playRound(playerSelection, getComputerChoice());
             result.textContent = outcome;
 
@@ -84,10 +83,6 @@ function game() {
             }
             playerScoreDisplay.textContent = playerScore.toString();
             computerScoreDisplay.textContent = computerScore.toString();
-
-            console.log("player: " + playerScore);
-            console.log("computer: " + computerScore);
-            
             
             if (playerScore == 5 || computerScore == 5){            // When there is a winner
                 
@@ -104,8 +99,6 @@ function game() {
             
         });
     });
-
-    console.log(outcome);
 
     /* if (outcome.includes("Win")) {
         playerScore++;
