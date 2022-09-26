@@ -58,6 +58,8 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+    console.log("we started");
+    startGame.disabled = true;
     let playerSelection;
     var outcome;
     let playerScore = 0;
@@ -101,4 +103,5 @@ function game() {
     });
 }
 
-
+const startGame = document.getElementById("start");
+startGame.addEventListener('click',game);
