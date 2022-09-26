@@ -65,6 +65,7 @@ function game() {
 
     const playerScoreDisplay = document.getElementById("player");
     const computerScoreDisplay = document.getElementById("computer");
+    const result = document.getElementById("result");
 
     const buttons = document.querySelectorAll('button');
 
@@ -73,7 +74,7 @@ function game() {
             playerSelection = e.target.id;
             console.log(playerSelection);
             outcome = playRound(playerSelection, getComputerChoice());
-            console.log(outcome);
+            result.textContent = outcome;
 
             if (outcome.includes("Win")) {
                 playerScore++;
@@ -93,13 +94,10 @@ function game() {
                 buttons.forEach((button) => button.disabled = true)
 
                 if (playerScore > computerScore) {
-                    console.log("Congratulations, you won!!");
+                    result.textContent = "Congratulations, you won!!";
                 }
-                else if (computerScore > playerScore) {
-                    console.log("Unlucky, you lost");
-                }
-                else {
-                    console.log("The game is a draw!");
+                else{
+                    result.textContent = "Unlucky, you lost";
                 }
 
             }
