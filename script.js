@@ -57,51 +57,67 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
+function playGame(e) {
+    playerSelection = e.target.id;
+    outcome = playRound(playerSelection, getComputerChoice());
+    result.textContent = outcome;
+
+    if (outcome.includes("Win")) {
+        playerScore++;
+    }
+    if (outcome.includes("Lose")) {
+        computerScore++;
+    }
+    playerScoreDisplay.textContent = playerScore.toString();
+    computerScoreDisplay.textContent = computerScore.toString();
+    console.log(playerScore);
+    console.log(computerScore);
+    if (playerScore == 5 || computerScore == 5) {            // When there is a winner
+
+        buttons.forEach((button) => button.disabled = true)
+        startGame.disabled = false;
+        startGame.addEventListener('click', reset);
+
+        if (playerScore > computerScore) {
+            result.textContent = "Congratulations, you won!!";
+        }
+        else {
+            result.textContent = "Unlucky, you lost";
+        }
+    }
+}
+
 function game() {
     console.log("we started");
     startGame.disabled = true;
-    let playerSelection;
-    var outcome;
-    let playerScore = 0;
-    let computerScore = 0;
-
-    const playerScoreDisplay = document.getElementById("player");
-    const computerScoreDisplay = document.getElementById("computer");
-    const result = document.getElementById("result");
-
-    const buttons = document.querySelectorAll('button');
 
     buttons.forEach((button) => {
-        button.addEventListener('click', function (e) {
-            playerSelection = e.target.id;
-            outcome = playRound(playerSelection, getComputerChoice());
-            result.textContent = outcome;
-
-            if (outcome.includes("Win")) {
-                playerScore++;
-            }
-            if (outcome.includes("Lose")) {
-                computerScore++;
-            }
-            playerScoreDisplay.textContent = playerScore.toString();
-            computerScoreDisplay.textContent = computerScore.toString();
-            
-            if (playerScore == 5 || computerScore == 5){            // When there is a winner
-                
-                buttons.forEach((button) => button.disabled = true)
-
-                if (playerScore > computerScore) {
-                    result.textContent = "Congratulations, you won!!";
-                }
-                else{
-                    result.textContent = "Unlucky, you lost";
-                }
-
-            }
-            
-        });
+        button.addEventListener('click', playGame);
     });
 }
 
+function reset() {
+
+    playerScoreDisplay.textContent = "0";
+    computerScoreDisplay.textContent = "0";
+    playerScore = 0;
+    computerScore = 0;
+    result.textContent = "";
+
+    buttons.forEach((button) => button.disabled = false);
+
+}
+
+let playerSelection;
+var outcome;
+let playerScore = 0;
+let computerScore = 0;
+
 const startGame = document.getElementById("start");
-startGame.addEventListener('click',game);
+startGame.addEventListener('click', game);
+
+const playerScoreDisplay = document.getElementById("player");
+const computerScoreDisplay = document.getElementById("computer");
+const result = document.getElementById("result");
+
+const buttons = document.querySelectorAll('button');
