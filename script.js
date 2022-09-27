@@ -105,6 +105,7 @@ function reset() {
     result.textContent = "";
 
     buttons.forEach((button) => button.disabled = false);
+    startGame.disabled = true;
 
 }
 
