@@ -90,7 +90,7 @@ function playGame(e) {
 function game() {
     console.log("we started");
     startGame.disabled = true;
-
+    buttons.forEach((button) => button.disabled = false);
     buttons.forEach((button) => {
         button.addEventListener('click', playGame);
     });
@@ -122,3 +122,4 @@ const computerScoreDisplay = document.getElementById("computer");
 const result = document.getElementById("result");
 
 const buttons = document.querySelectorAll('div.button-container > button');
+buttons.forEach((button) => button.disabled = true);
