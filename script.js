@@ -121,4 +121,4 @@ const playerScoreDisplay = document.getElementById("player");
 const computerScoreDisplay = document.getElementById("computer");
 const result = document.getElementById("result");
 
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('div.button-container > button');
