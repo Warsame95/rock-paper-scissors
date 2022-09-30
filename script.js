@@ -70,8 +70,7 @@ function playGame(e) {
     }
     playerScoreDisplay.textContent = playerScore.toString();
     computerScoreDisplay.textContent = computerScore.toString();
-    console.log(playerScore);
-    console.log(computerScore);
+    
     if (playerScore == 5 || computerScore == 5) {            // When there is a winner
 
         buttons.forEach((button) => button.disabled = true)
@@ -88,7 +87,7 @@ function playGame(e) {
 }
 
 function game() {
-    console.log("we started");
+    
     startGame.disabled = true;
     buttons.forEach((button) => button.disabled = false);
     buttons.forEach((button) => {
